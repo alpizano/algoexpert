@@ -6,6 +6,9 @@ public class Solution_ForLoop {
         // Write your code here.
         int[] answer = new int[0];
 
+        // nested for loop approach
+        // time complexity O(n^2)
+        // space complexity O(1)
         for(int i=0; i<array.length; i++) {
             for(int j=i+1; j<array.length; j++) {
                 if(array[i] + array[j] == targetSum) {
