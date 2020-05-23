@@ -1,7 +1,7 @@
 package org.example;
 
 // ~ 13 min completion time
-public class Program {
+public class Solution_ForLoop {
     public static int[] twoNumberSum(int[] array, int targetSum) {
         // Write your code here.
         int[] answer = new int[0];
