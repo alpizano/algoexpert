@@ -8,3 +8,8 @@ Q: Write a function that takes in a non-empty array of distinct integers and an 
 Note that the target sum has to be obtained by summing two different integers in the array; you can't add a single integer to itself in order to obtain the target sum.
 
 You can assume that there will be at msot one pair of numbers summing up to the target sum.
+
+###`Palindrome Check`
+Write a function that takes in a non-empty string and that returns a boolean representing whether the string is a palindrome.
+
+A palindrome is defined as a string that's written the same forward and backward. Note that single-character strings are palindromes.
