@@ -10,11 +10,7 @@ import java.util.List;
  */
 public class Solution_Iterative
 {
-    public static void main( String[] args )
-    {
-
-        List<Integer> array = new ArrayList(Arrays.asList(5,6,22,25,1,-1,8,10));
-        List<Integer> sequence = new ArrayList(Arrays.asList(1,6,-1,10));
+    public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
         int j =0;
 
         for(Integer i: array) {
@@ -27,8 +23,13 @@ public class Solution_Iterative
                 break;
             }
         }
+        return j==sequence.size();
+    }
+    public static void main( String[] args )
+    {
+        List<Integer> array = new ArrayList(Arrays.asList(5,1,22,25,6,-1,8,10));
+        List<Integer> sequence = new ArrayList(Arrays.asList(1,6,-1,10));
 
-        System.out.println("j: " + j);
-        System.out.println("size(): " + (sequence.size()));
+        System.out.println(Solution_Iterative.isValidSubsequence(array,sequence));
     }
 }
