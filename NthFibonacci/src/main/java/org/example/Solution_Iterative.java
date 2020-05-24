@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Solution_Iterative {
@@ -27,5 +28,15 @@ public class Solution_Iterative {
 
     public static void main(String[] args) {
         System.out.println(Solution_Iterative.getNthFib(6));
+
+        int num0= 0;
+        int num1= 1;
+
+        List<Integer> list2 = Arrays.asList(num0,num1);
+
+        for(Integer i: list2) {
+            System.out.println(i);
+        }
+
     }
 }
