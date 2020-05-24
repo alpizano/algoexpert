@@ -4,27 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution_Iterative {
-
-
-    public static void main(String[] args) {
-        int n = 6;
+    public static int getNthFib(int n) {
         List<Integer> list = new ArrayList<>();
+
+        // Add fib base cases to list
         list.add(0);
         list.add(1);
 
         int i=2;
         int nMinusOne = 0;
         int nMinusTwo =1;
-        int fibNum = n-1;
 
-        while(i <= fibNum) {
-            list.add(i, nMinusOne + nMinusTwo);
-            i++;
+        while(i < n) {
+            list.add(i, list.get(nMinusOne)+ list.get(nMinusTwo));
             nMinusOne++;
             nMinusTwo++;
+            i++;
         }
 
-        System.out.println(list.get(fibNum));
+        return list.get(n-1);
+    }
 
+    public static void main(String[] args) {
+        System.out.println(Solution_Iterative.getNthFib(6));
     }
 }
