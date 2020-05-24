@@ -2,14 +2,16 @@ package org.example;
 
 public class Solution_Recursive {
     public static int getNthFib(int n) {
-        if(n==0) {
+        int k = n-1;
+
+        if(k==0) {
             return 0;
         }
-        else if(n==1) {
+        else if(k==1) {
             return 1;
         }
         else {
-            return getNthFib(n-1);
+            return getNthFib(k-1) + getNthFib(k-2);
         }
     }
 
