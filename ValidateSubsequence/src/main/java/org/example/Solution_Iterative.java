@@ -18,8 +18,13 @@ public class Solution_Iterative
         int j =0;
 
         for(Integer i: array) {
+            // Loop through array, only increment subsequence ref if sequence ref == array ref
             if(sequence.get(j) == i) {
                 j++;
+            }
+            // Once subseq ref == subseq size, break out of loop to avoid IndexOutOfBounds exception
+            if(j == sequence.size()) {
+                break;
             }
         }
 
