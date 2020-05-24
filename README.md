@@ -18,3 +18,8 @@ A palindrome is defined as a string that's written the same forward and backward
 Given a non-empty string of lowercase letters and a non-negative integer representing a key, write a function that returns a new string obtained by shifting every letter in the input string by k positions in the alphabet, where k is the key.
 
 Note that letters should "wrap" around the alphabet; in other words, the letter z shifted by one returns the letter a.
+
+### `Nth Fibonacci`
+The Fibonacci sequence is defined as follows: the first number of the sequence is `0`, the second number is `1`, and the nth number is the sum of the (n - 1)th and (n - 2)th numbers. Write a function that takes in an integer `n` and returns the nth Fibonacci number.
+
+Important note: the Fibonacci sequence is often defined with its first two numbers as `F0 = 0` and `F1 = 1`. For the purpose of this question, the first Fibonacci number is `F0`; therefore, `getNthFib(1)` is equals to `F0`, `getNthFib(2)` is equals to `F1`, etc...
