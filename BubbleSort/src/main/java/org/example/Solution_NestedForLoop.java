@@ -6,6 +6,9 @@ package org.example;
  */
 public class Solution_NestedForLoop
 {
+    // Solving used nested For Loop
+    // Time Complexity O(n^2)
+    // Space complexity O(1)
     public static int[] bubbleSort(int[] array) {
         // Write your code here
         for(int i=0; i<array.length; i++) {
