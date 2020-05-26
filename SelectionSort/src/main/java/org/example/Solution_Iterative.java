@@ -2,9 +2,8 @@ package org.example;
 
 
 public class Solution_Iterative {
-    public static void main(String[] args) {
-        int[] array = new int[]{8, 5, 2, 9, 5, 6, 3};
-
+    public static int[] selectionSort(int[] array) {
+        //Write your code here.
         boolean found = false;
 
         for (int i = 0; i < array.length; i++) {
@@ -22,7 +21,13 @@ public class Solution_Iterative {
                 }
             }
         }
-        for (int i : array) {
+        return array;
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{8, 5, 2, 9, 5, 6, 3};
+
+        for (int i : Solution_Iterative.selectionSort(array)) {
             System.out.printf("%d ", i);
         }
     }
