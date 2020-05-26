@@ -14,11 +14,13 @@ Write a function that takes in a non-empty string and that returns a boolean rep
 
 A palindrome is defined as a string that's written the same forward and backward. Note that single-character strings are palindromes.
 
+
 #### Sample input
 `string = "abcdcba"`
 
 ### Sample Output
 `true // it's written the same forward and backward`
+
 
 ### `Caesar Cipher Encryptor`
 Given a non-empty string of lowercase letters and a non-negative integer representing a key, write a function that returns a new string obtained by shifting every letter in the input string by k positions in the alphabet, where k is the key.

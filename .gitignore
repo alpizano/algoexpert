@@ -1,0 +1,6 @@
+*.xml
+.idea
+/target
+*.iml
+*.class
+.gitignore
