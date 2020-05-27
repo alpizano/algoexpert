@@ -4,25 +4,23 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution
+public class Solution_Iterative
 {
     public static void main( String[] args )
     {
         // Create sample list
         List<Object> list = new ArrayList<>();
+        List<Object> list2 = new ArrayList<>();
+        List<Object> list3 = new ArrayList<>();
+        List<Object> list4 = new ArrayList<>();
+
         list.add(5);
         list.add(2);
-
-        List<Object> list2 = new ArrayList<>();
         list2.add(7);
         list2.add(-1);
-
         list.add(list2);
-
         list.add(3);
-        List<Object> list3 = new ArrayList<>();
         list3.add(6);
-        List<Object> list4 = new ArrayList<>();
         list4.add(-13);
         list4.add(8);
         list3.add(list4);
@@ -36,6 +34,7 @@ public class Solution
         int sum = 0;
         for(Object element: list) {
             if(element instanceof  ArrayList) {
+                factor++;
 
             }
             else {
