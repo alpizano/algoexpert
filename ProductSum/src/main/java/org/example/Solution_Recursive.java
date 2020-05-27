@@ -8,25 +8,31 @@ public class Solution_Recursive {
     static int sum = 0;
     static int factor =1;
     static int count = 0;
-    static List<Integer> factors_list = new ArrayList();
+    static List<Integer> factorsList = new ArrayList();
 
     public static int productSum(List<Object> array) {
 
         for(Object o: array) {
             if(o instanceof Integer) {
+                // Sum values with current factor
                 sum = sum + factor*(int)o;
             }
             else {
+                // increment count
                 count++;
-                factors_list.add(factor);
-
+                // store previous factor in List
+                factorsList.add(factor);
+                // increment factor as factorial i.e. 1*2*3... etc...
                 factor = factor * (factor+1);
+
                 // Found special array. Recursive function
-                productSum((List)o);
+                productSum((List<Object>)o);
 
             }
         }
-        factor = factors_list.get(count-1);
+        // Decrement factor as factorial; grab previous value
+        if( count > 0)
+        factor = factorsList.get(count-1);
         return sum;
     }
 
@@ -34,6 +40,8 @@ public class Solution_Recursive {
     public static void main(String[] args) {
         // Instantiating Lists
         List<Object> list = new ArrayList(Arrays.asList(5, 2, new ArrayList(Arrays.asList(7,-1)), 3, new ArrayList(Arrays.asList(6, new ArrayList(Arrays.asList(-13,8)), 4))));
+        List<Object> list2 = new ArrayList(Arrays.asList(1,2,3,4,5));
+        List<Object> list3 = new ArrayList(Arrays.asList(1,2,3,4,5));
 
         System.out.println(list);
         System.out.println(list.get(0) instanceof Integer);
@@ -44,6 +52,7 @@ public class Solution_Recursive {
 
         System.out.println(((List)list.get(4)).get(1));
 
-        System.out.println(Solution_Recursive.productSum(list));
+       //System.out.println(Solution_Recursive.productSum(list));
+        System.out.println(Solution_Recursive.productSum(list2));
     }
 }
