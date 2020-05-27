@@ -5,13 +5,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Solution_Recursive {
-    static int sum = 0;
-    static int factor =1;
-    static int count = 0;
-    static List<Integer> factorsList = new ArrayList();
 
     public static int productSum(List<Object> array) {
+        int sum =0;
+        int factor =1;
+        int count =0;
+        List<Integer> factorsList = new ArrayList();
 
+        int answer = helper(array, sum, factor, count, factorsList);
+
+
+        return answer;
+    }
+
+    public static int helper(List<Object> array, int sum, int factor, int count, List<Integer> factorsList) {
         for(Object o: array) {
             if(o instanceof Integer) {
                 // Sum values with current factor
@@ -26,13 +33,13 @@ public class Solution_Recursive {
                 factor = factor * (factor+1);
 
                 // Found special array. Recursive function
-                productSum((List<Object>)o);
+                sum = helper((List<Object>)o, sum, factor, count, factorsList);
 
             }
         }
         // Decrement factor as factorial; grab previous value
         if( count > 0)
-        factor = factorsList.get(count-1);
+            factor = factorsList.get(count-1);
         return sum;
     }
 
@@ -52,7 +59,7 @@ public class Solution_Recursive {
 
         System.out.println(((List)list.get(4)).get(1));
 
-       //System.out.println(Solution_Recursive.productSum(list));
-        System.out.println(Solution_Recursive.productSum(list2));
+       System.out.println(Solution_Recursive.productSum(list));
+       // System.out.println(Solution_Recursive.productSum(list2));
     }
 }
