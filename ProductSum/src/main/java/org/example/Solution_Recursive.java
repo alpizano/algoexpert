@@ -7,27 +7,29 @@ import java.util.List;
 public class Solution_Recursive {
     static int sum = 0;
     static int factor =1;
+    static int count = 0;
+    static List<Integer> factors_list = new ArrayList();
 
     public static int productSum(List<Object> array) {
-        sum =0;
-        factor =1;
 
         for(Object o: array) {
             if(o instanceof Integer) {
                 sum = sum + factor*(int)o;
             }
             else {
+                count++;
+                factors_list.add(factor);
+
+                factor = factor * (factor+1);
                 // Found special array. Recursive function
-                productSum(array);
+                productSum((List)o);
+
             }
         }
-
+        factor = factors_list.get(count-1);
         return sum;
     }
 
-    public void helper(List<Object> array) {
-
-    }
 
     public static void main(String[] args) {
         // Instantiating Lists
