@@ -9,38 +9,41 @@ public class Solution_Recursive {
     public static int productSum(List<Object> array) {
         int sum = 0;
         int factor = 1;
+        int factorsSum = 1;
         int count = 0;
-        List<Integer> factorsList = new ArrayList();
+        List<Integer> factorsList = new ArrayList(Arrays.asList(factor));
 
-        int answer = helper(array, sum, factor, count, factorsList);
+        int answer = helper(array, sum, factor, count, factorsList, factorsSum);
 
 
         return answer;
     }
 
-    public static int helper(List<Object> array, int sum, int factor, int count, List<Integer> factorsList) {
+    public static int helper(List<Object> array, int sum, int factor, int count, List<Integer> factorsList, int factorsSum) {
         for (Object o : array) {
             if (o instanceof Integer) {
                 // Sum values with current factor
-                sum = sum + factor * (int) o;
+                sum = sum + factorsSum * (int) o;
             } else {
                 // increment count
                 count++;
+                factor++;
                 // store previous factor in List
                 factorsList.add(factor);
                 // increment factor as factorial i.e. 1*2*3... etc...
-                factor = factor * (factor + 1);
+                factorsSum = factorsSum * factorsList.get(count);
 
                 // Found special array. Recursive function
-                sum = helper((List<Object>) o, sum, factor, count, factorsList);
-                if (count > 0)
-                    factor = factorsList.get(count - 1);
+                sum = helper((List<Object>) o, sum, factor, count, factorsList, factorsSum);
+                factorsList.remove(count);
+                count--;
+                factorsSum = 1;
+                factor = factorsList.get(count);
+                factorsSum = factorsSum * factorsList.get(count);
 
             }
         }
-        // Decrement factor as factorial; grab previous value
-//        if( count > 0)
-//            factor = factorsList.get(count-1);
+
         return sum;
     }
 
