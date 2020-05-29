@@ -54,6 +54,8 @@ public class Solution_Recursive {
         List<Object> list2 = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
         List<Object> list3 = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
         List<Object> list4 = new ArrayList(Arrays.asList(Arrays.asList(Arrays.asList(Arrays.asList(Arrays.asList(5))))));
+        List<Object> list5 = new ArrayList(Arrays.asList(3, new ArrayList(Arrays.asList(6, new ArrayList(Arrays.asList(-13, Arrays.asList(5, 2), 8)), 4))));
+
 
         System.out.println(list);
         System.out.println(list.get(0) instanceof Integer);
@@ -68,5 +70,6 @@ public class Solution_Recursive {
 //        System.out.println(Solution_Recursive.productSum(list));
 //        System.out.println(Solution_Recursive.productSum(list2));
         System.out.println(Solution_Recursive.productSum(list4));
+        System.out.println(Solution_Recursive.productSum(list5));
     }
 }
