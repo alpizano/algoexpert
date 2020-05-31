@@ -1,28 +1,36 @@
 package org.example;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution_Recursive
 {
     public static int findClosetValueInBst(BST tree, int target) {
-        int closetValue =Math.abs(tree.value-target);
-        int answer = helper(tree, target, closetValue);
+        int answer = helper(tree, target, Math.abs(tree.value-target), 0);
         return answer;
     }
 
-    public static int helper (BST tree, int target, int closetValue) {
+    public static int helper (BST tree, int target, int closetValue, int nodeVal) {
         if(tree == null) {
-            return closetValue;
+            return nodeVal;
         }
         else if(target < tree.value) {
-            closetValue = Math.abs(tree.value-target);
-           closetValue = helper(tree.left, target, closetValue);
+            if (Math.abs(tree.value - target) < closetValue) {
+                closetValue = Math.abs(tree.value-target);
+                nodeVal = tree.value;
+            }
+           nodeVal = helper(tree.left, target, closetValue, nodeVal);
         }
         else if(target > tree.value) {
-            closetValue = Math.abs(tree.value-target);
-           closetValue = helper(tree.right, target,closetValue);
+            if (Math.abs(tree.value - target) < closetValue) {
+                closetValue = Math.abs(tree.value-target);
+                nodeVal = tree.value;
+            }
+           nodeVal = helper(tree.right, target,closetValue, nodeVal);
             }
 
-        return closetValue;
+        return nodeVal;
         }
 
 
@@ -47,8 +55,9 @@ public class Solution_Recursive
         root.right = new BST(15);
         root.right.left = new BST(13);
         root.right.right = new BST(22);
-        root.right.left.left = new BST(14);
+        root.right.left.right = new BST(14);
 
-        System.out.println( "Hello World!" );
+
+        System.out.println(Solution_Recursive.findClosetValueInBst(root, 12));
     }
 }
