@@ -4,21 +4,27 @@ package org.example;
 public class Solution_Recursive
 {
     public static int findClosetValueInBst(BST tree, int target) {
-        int answer = helper(tree, target);
+        int closetValue =Math.abs(tree.value-target);
+        int answer = helper(tree, target, closetValue);
         return answer;
     }
 
-    public static int helper (BST tree, int target) {
+    public static int helper (BST tree, int target, int closetValue) {
         if(tree == null) {
-            return ;
+            return closetValue;
         }
-        else if(target < tree) {
-            = helper(tree.left, target);
-        else if(target > tree) {
-            = helper(tree.right, target);
+        else if(target < tree.value) {
+            closetValue = Math.abs(tree.value-target);
+           closetValue = helper(tree.left, target, closetValue);
+        }
+        else if(target > tree.value) {
+            closetValue = Math.abs(tree.value-target);
+           closetValue = helper(tree.right, target,closetValue);
             }
+
+        return closetValue;
         }
-    }
+
 
     static class BST {
         int value;
@@ -30,8 +36,10 @@ public class Solution_Recursive
         }
 
     }
+
     public static void main( String[] args )
     {
+
         System.out.println( "Hello World!" );
     }
 }
