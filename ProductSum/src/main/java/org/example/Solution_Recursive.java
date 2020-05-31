@@ -69,7 +69,7 @@ public class Solution_Recursive {
 
 //        System.out.println(Solution_Recursive.productSum(list));
 //        System.out.println(Solution_Recursive.productSum(list2));
-        System.out.println(Solution_Recursive.productSum(list4));
+//        System.out.println(Solution_Recursive.productSum(list4));
         System.out.println(Solution_Recursive.productSum(list5));
     }
 }
