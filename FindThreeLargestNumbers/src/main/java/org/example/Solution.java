@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Solution {
-    public static void main(String[] args) {
-        int[] array = new int[]{141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7};
-
+    public static int[] findThreeLargestNumbers(int[] array) {
         List<Integer> list = new ArrayList<>();
         for (Integer val : array) {
             list.add(val);
@@ -27,6 +25,11 @@ public class Solution {
             count--;
         }
 
-        System.out.println(Arrays.toString(answer));
+        return answer;
+    }
+    public static void main(String[] args) {
+        int[] array = new int[]{141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7};
+
+        System.out.println(Arrays.toString(Solution.findThreeLargestNumbers(array)));
     }
 }
