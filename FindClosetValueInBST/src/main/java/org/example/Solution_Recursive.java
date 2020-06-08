@@ -13,7 +13,7 @@ public class Solution_Recursive
 
     public static int helper (BST tree, int target, int closetValue, int nodeVal) {
         if(tree == null) {
-            return nodeVal;
+            return closetValue;
         }
         else if(target < tree.value) {
             if (Math.abs(tree.value - target) < closetValue) {
@@ -56,7 +56,7 @@ public class Solution_Recursive
         root.right.left = new BST(13);
         root.right.right = new BST(22);
         root.right.left.right = new BST(14);
-
+        root.right.left.right.right = new BST(22);
 
         System.out.println(Solution_Recursive.findClosetValueInBst(root, 12));
     }
