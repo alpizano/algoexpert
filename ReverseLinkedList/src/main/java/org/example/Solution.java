@@ -4,25 +4,36 @@ package org.example;
 public class Solution
 {
     public static LinkedList reverseLinkedList(LinkedList head) {
-        LinkedList helper = head;
-        LinkedList node;
+        LinkedList tmp = null;
+        LinkedList newHead = null;
+        //System.out.println("helper.value is: " + newHead.value);
 
+
+        int count = 0;
+
+        // Not in place
         for(LinkedList cursor = head; cursor != null; cursor=cursor.next) {
-            node = new LinkedList(cursor.value);
-            node = helper;
-            helper = node;
-        }
+                tmp = new LinkedList(cursor.value);
+                tmp.next = newHead;
+                newHead = tmp;
 
-        return helper;
+        }
+//        LinkedList cursor = head;
+//        while(cursor != null) {
+//            cursor.next = tmp;
+//                tmp = cursor;
+//        }
+//        head.next = null;
+
+        return newHead;
     }
 
     static class LinkedList {
         int value;
-        LinkedList next;
+        LinkedList next = null;
 
         public LinkedList(int value) {
             this.value=value;
-            next = null;
         }
     }
     public static void main( String[] args )
@@ -34,7 +45,18 @@ public class Solution
         myList.next.next.next.next = new LinkedList(4);
         myList.next.next.next.next.next = new LinkedList(5);
 
+        LinkedList newHead = myList;
+
         for(LinkedList cursor = myList; cursor != null; cursor=cursor.next) {
+            //System.out.print(cursor.next.value + " ");
+           // System.out.print(cursor.next.value + " ");
+        }
+
+        System.out.println();
+
+        LinkedList newList = Solution.reverseLinkedList(myList);
+
+        for(LinkedList cursor = newList; cursor != null; cursor=cursor.next) {
             System.out.print(cursor.value + " ");
         }
 
