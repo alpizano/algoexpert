@@ -1,15 +1,11 @@
 package org.example;
 
 
-public class Solution
+public class Solution_NewList
 {
     public static LinkedList reverseLinkedList(LinkedList head) {
         LinkedList tmp = null;
         LinkedList newHead = null;
-        //System.out.println("helper.value is: " + newHead.value);
-
-
-        int count = 0;
 
         // Not in place
         for(LinkedList cursor = head; cursor != null; cursor=cursor.next) {
@@ -18,12 +14,6 @@ public class Solution
                 newHead = tmp;
 
         }
-//        LinkedList cursor = head;
-//        while(cursor != null) {
-//            cursor.next = tmp;
-//                tmp = cursor;
-//        }
-//        head.next = null;
 
         return newHead;
     }
@@ -54,7 +44,7 @@ public class Solution
 
         System.out.println();
 
-        LinkedList newList = Solution.reverseLinkedList(myList);
+        LinkedList newList = Solution_NewList.reverseLinkedList(myList);
 
         for(LinkedList cursor = newList; cursor != null; cursor=cursor.next) {
             System.out.print(cursor.value + " ");
