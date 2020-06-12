@@ -3,13 +3,29 @@ package org.example;
 public class Solution_InPlace {
     public static LinkedList reverseLinkedList(LinkedList head) {
 
-        LinkedList cursor = head;
-        LinkedList p1 = head;
-        LinkedList p2
-        LinkedList p3 =
-       while(cursor != null) {
+        LinkedList p1 = head; // points to 0
+        LinkedList p2 = p1.next; // points to 1
+        LinkedList tmp = p2.next; // points to 2
+
+       while(p2 != null) {
+
+           // Point node in reverse
+            p2.next = p1;
+
+           if(p1 == head) {
+               head.next =null;
+           }
+
+           // Shift nodes
+           p1 = p2;
+           p2 = tmp;
+           if(tmp != null) {
+               tmp = tmp.next;
+           }
 
        }
+       // Switch head reference
+       head = p1;
 
         return head;
     }
