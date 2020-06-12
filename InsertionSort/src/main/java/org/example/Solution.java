@@ -11,6 +11,7 @@ public class Solution
             int tmp = array[i];
             int gap = i;
 
+            // while the gap is not at the end of the left side of the array
             while(gap > 0) {
                 if(array[gap-1] > tmp) {
                     array[gap] = array[gap-1];
