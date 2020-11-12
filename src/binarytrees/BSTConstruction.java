@@ -18,20 +18,25 @@ public class BSTConstruction {
 
         public BST insert(int value) {
             // Write your code here.
-            BST node = new BST(value);
-
-            if(value < this.value && left == null ){
-                return left = node;
-            }
-            else if(value > this.value && right == null) {
-                return right = node;
+            if(this.value == value) {
+                return this;
             }
 
-            if(value < this.value) {
-               left.insert(value);
+            if(value < this.value){
+                if(left == null) {
+                    return left = new BST(value);
+                }
+                else {
+                    left.insert(value);
+                }
             }
             else if(value > this.value) {
-                right.insert(value);
+                if(right == null) {
+                    return right = new BST(value);
+                }
+                else {
+                    right.insert(value);
+                }
             }
 
             // Do not edit the return statement of this method.
@@ -40,11 +45,57 @@ public class BSTConstruction {
 
         public boolean contains(int value) {
             // Write your code here.
+            if(this.value == value) {
+                return true;
+            }
+
+            if(value < this.value){
+                if(left == null) {
+                    return false;
+                    //return left = new BST(value);
+                }
+                else {
+                    return left.contains(value);
+                }
+            }
+            else if(value > this.value) {
+                if(right == null) {
+                    return false;
+                    //return right = new BST(value);
+                }
+                else {
+                    return right.contains(value);
+                }
+            }
+
             return false;
         }
 
         public BST remove(int value) {
             // Write your code here.
+            if(this.value == value) {
+                return true;
+            }
+
+            if(value < this.value){
+                if(left == null) {
+                    return new BST(-1);
+                    //return left = new BST(value);
+                }
+                else {
+                    return left.remove(value);
+                }
+            }
+            else if(value > this.value) {
+                if(right == null) {
+                    return new BST(-1);
+                    //return right = new BST(value);
+                }
+                else {
+                    return right.remove(value);
+                }
+            }
+
             // Do not edit the return statement of this method.
             return this;
         }
@@ -76,6 +127,8 @@ public class BSTConstruction {
         root3.insert(7);
         root3.insert(6);
         root3.insert(8);
+
+        System.out.println(root3.contains(0));
 
 
     }
